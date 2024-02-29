@@ -1,0 +1,16 @@
+server.servlet.context-path=/
+server.port=9090
+spring.datasource.url=jdbc:postgresql://localhost:5432/ebs
+spring.datasource.username=postgres
+spring.datasource.password=admin
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.generate-ddl=true
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.mvc.pathmatch.matching-strategy=ant-path-matcher
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+
+
+
+

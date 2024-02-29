@@ -1,0 +1,5 @@
+package com.bill.bill_module.entity;
+
+public class Bill {
+
+}

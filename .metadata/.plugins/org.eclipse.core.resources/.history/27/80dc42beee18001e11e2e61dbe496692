@@ -1,0 +1,18 @@
+package com.payment.payment_module.service;
+
+import java.util.Optional;
+
+import com.payment.payment_module.entity.Bill;
+
+public class BillService {
+	
+	public Optional<Bill> getBillById(int id) throws BillNotFoundException{
+		
+		Optional<Bill> bill = billRepository.findById(id);
+		if (!bill.isPresent()) {
+			throw new BillNotFoundException("Bill not found with ID: " + id);
+		}
+		return bill;
+	}
+
+}

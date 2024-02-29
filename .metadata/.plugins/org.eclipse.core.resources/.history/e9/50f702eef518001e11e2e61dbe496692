@@ -1,0 +1,5 @@
+package com.bill.bill_module.exception;
+
+public class BillNotFoundException {
+
+}

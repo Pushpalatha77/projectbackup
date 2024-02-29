@@ -1,0 +1,74 @@
+package com.payment.payment_module.service;
+
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.payment.payment_module.data.PaymentRepository;
+import com.payment.payment_module.entity.Payment;
+import java.util.Random;
+
+
+@Service
+public class PaymentService extends Exception{
+
+	@Autowired
+
+	private PaymentRepository paymentRepository;
+
+
+	public double latePaidAmount(Payment payment) {
+
+		double finePerDay = 13;
+
+		long days = ChronoUnit.DAYS.between(payment.getPaymentDate(), payment.getBill().getDueDate());
+
+		double fineAmount = Math.abs(days * finePerDay);
+
+		return fineAmount;
+
+	}
+
+	
+	//Post Mapping
+	public void assign(Payment payment) {
+	    payment.setTotalAmount(payment.getBill().getAmount() + latePaidAmount(payment));
+	    
+	    // Generate transaction ID
+	    String transactionId = generateTransactionId();
+	    payment.setTransactionId(transactionId);
+	    
+	    paymentRepository.save(payment);
+	}
+
+	private String generateTransactionId() {
+	    // Define the length of the transaction ID
+	    int length = 10;
+	    
+	    // Define the characters allowed in the transaction ID
+	    String allowedCharacters = "0123456789";
+	    
+	    Random random = new Random();
+	    StringBuilder transactionIdBuilder = new StringBuilder(length);
+	    
+	    // Generate random digits for the transaction ID
+	    for (int i = 0; i < length; i++) {
+	        int randomIndex = random.nextInt(allowedCharacters.length());
+	        char randomChar = allowedCharacters.charAt(randomIndex);
+	        transactionIdBuilder.append(randomChar);
+	    }
+	    
+	    return transactionIdBuilder.toString();
+	}
+
+	
+	//GetAll
+	public List<Payment> getAllPaymentRecords() {
+		// TODO Auto-generated method stub
+		return paymentRepository.findAll();
+	}
+
+	
+	
+}
+

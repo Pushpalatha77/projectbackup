@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.payment.payment_module.data.PaymentRepository"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.service.PaymentService"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.data.MeterRepository"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.entity.Meter"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.entity.Payment"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="java.time.temporal.ChronoUnit"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.entity.Customer"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.service.CustomerService"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.entity.Bill"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.service.BillService"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.exception.BillNotFoundException"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.exception.PaymentNotFoundException"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.data.BillRepository"/>
+    <fullyQualifiedTypeName name="com.payment.payment_module.data.CustomerRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.data.BillRepository"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.service.BillService"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.entity.Bill"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.entity.Customer"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.data.CustomerRepository"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.data.MeterRepository"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.exception.BillNotFoundException"/>
+    <fullyQualifiedTypeName name="com.bill.bill_module.entity.Meter"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+</qualifiedTypeNameHistroy>

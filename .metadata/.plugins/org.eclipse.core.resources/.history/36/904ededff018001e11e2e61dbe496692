@@ -1,0 +1,90 @@
+package com.payment.payment_module.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.payment.payment_module.entity.Bill;
+import com.payment.payment_module.entity.Customer;
+import com.payment.payment_module.entity.Payment;
+import com.payment.payment_module.service.BillService;
+import com.payment.payment_module.service.CustomerService;
+import com.payment.payment_module.service.PaymentService;
+
+
+
+@RestController
+@CrossOrigin(origins = {"*"})
+public class PaymentController {
+
+	@Autowired
+	private PaymentService paymentService;
+	
+	@Autowired
+	private CustomerService customerService;
+
+	@Autowired
+	private BillService billService;
+	
+	// Post
+		@PostMapping("/add/{billId}/{custId}")
+		public ResponseEntity<String> BillPayment(@RequestBody Payment payment,
+
+				@PathVariable("billId") int id,
+
+				@PathVariable("custId") int custId) throws Exception {
+
+			// fetch the bill object based on billId
+
+			Optional<Bill> optionalBill = billService.getBillById(id);
+
+			if (!optionalBill.isPresent())
+
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("entered invalid billId");
+
+			// fetch the customer object based on customerId
+
+			Optional<Customer> optionalCustomer = customerService.getCustomerById(custId);
+
+			if (!optionalCustomer.isPresent())
+
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("entered invalid custId");
+
+			Bill bill = optionalBill.get();
+
+			Customer customer = optionalCustomer.get();
+
+			payment.setBill(bill);
+
+			payment.setCustomer(customer);
+
+			// save the payment object
+
+			paymentService.assign(payment);
+			//LoggerUtil.logInfo("Payment Successful ");
+			return ResponseEntity.status(HttpStatus.OK).body("Payment Succesfull!!!");
+
+		}
+
+
+	
+	//GetAll
+		@GetMapping("/api/payment/getall")
+		public List<Payment> getAllPaymentRecords(){
+			List<Payment> list = paymentService.getAllPaymentRecords();
+			//LoggerUtil.logInfo(" All Payments details ");
+			return list;
+		}
+}
+
+
+

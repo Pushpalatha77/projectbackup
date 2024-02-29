@@ -1,0 +1,24 @@
+package com.payment.payment_module.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.payment.payment_module.data.CustomerRepository;
+import com.payment.payment_module.entity.Customer;
+
+
+@Service
+public class CustomerService {
+	
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	public Optional<Customer> getCustomerById(int id) {
+		// TODO Auto-generated method stub
+		Optional<Customer> optional = customerRepository.findById(id);
+		return optional;
+	}
+
+}
